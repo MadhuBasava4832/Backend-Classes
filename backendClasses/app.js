@@ -4,8 +4,9 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 
-//added imports  here
+//added imports from here
 const cors = require("cors");
+const bodyparser = require("body-parser");
 const firstRoutes = require("./Routes/firstRotes");
 const mongoose = require("mongoose");
 
@@ -21,7 +22,8 @@ app.set('view engine', 'jade');
 
 //added code here
 app.use(cors());
-
+app.use(bodyparser.json());
+app.use("/",firstRoutes);
 
 mongoose.connect("mongodb+srv://madhubasava32:sFdTiFnt5iX1gNrq@cluster0.htcus.mongodb.net/")
 .then( result => {
@@ -35,7 +37,6 @@ mongoose.connect("mongodb+srv://madhubasava32:sFdTiFnt5iX1gNrq@cluster0.htcus.mo
 
 
 
-// app.get
 
 
 
@@ -46,9 +47,7 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 
-//
 
-app.use("/",firstRoutes);
 
 
 //Added code here start
@@ -70,15 +69,6 @@ app.listen(port,function()
 
 
 //Added code here end
-
-
-
-
-
-
-
-
-
 
 
 
