@@ -59,10 +59,9 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 
 var port = 9000;
-
 app.listen(port,function()
 {
-  console.log("server started " + port );
+  console.log("server started at port  " + port );
   
 })
 
